@@ -1,0 +1,28 @@
+.panel-title{
+
+    text-align: center;
+    font: 24px/40px "";
+}
+.form-group{
+    font-size: 18px;
+}
+.form-control{
+    width: 60%;
+    height: 40px;
+    margin-left: 30px;
+
+}
+.ckeditor{
+    width: 352px;
+    height: 150px;
+    margin-left: 65px;
+}
+.btn {
+    outline: none;
+    padding: 6px;
+    margin:  auto;
+    display: block;
+    border: none;
+    background: #bf9536;
+    cursor: pointer;
+}

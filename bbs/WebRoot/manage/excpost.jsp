@@ -1,0 +1,174 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="com.bbs.model.Post"%>
+<%@page import="com.bbs.service.PostBiz"%>
+<%@page import="org.springframework.context.support.ClassPathXmlApplicationContext"%>
+<%@page import="org.springframework.context.ApplicationContext"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+if (session.getAttribute("adminname") == null){
+response.sendRedirect(path+"/manage/admin.jsp");
+return ;
+}
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>异常帖处理</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+  </head>
+  
+  <body>
+  
+     <jsp:include page="/pages/header.jsp"/>
+   
+   <div class="container" style="margin-top: 80px">
+    <div class="row">
+        <div class="col-xs-3">
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" ><a href="<%=path%>/manage/notice.jsp">发布公告</a></li>
+                <li role="presentation" ><a href="<%=path%>/manage/change-admin.jsp">资料修改</a></li>
+                <li role="presentation" ><a href="<%=path%>/manage/newpost.jsp">查看新帖</a></li>
+                <li role="presentation" class="active"><a href="<%=path%>/manage/excpost.jsp">查看异常帖</a></li>
+                <li role="presentation"><a href="<%=path%>/manage/advice.jsp">查看反馈</a></li>
+                <li role="presentation"><a href="<%=path%>/manage/bestpost.jsp">精华帖请求</a></li>
+                <li role="presentation"><a href="<%=path%>/manage/limit.jsp">封锁用户</a></li>
+                <li role="presentation"><a href="<%=path%>/manage/create_discuss.jsp">创建讨论区</a></li>
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+             <ul class="list-group">
+                <a class="list-group-item active">
+                    异常帖
+                </a>
+
+               <% ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+                  	   PostBiz postBiz = (PostBiz)context.getBean("postBiz");
+                  	   String pageNumStr = request.getParameter("page");
+                  	   int pageNum = 1;
+                  	   if (pageNumStr != null)
+                  	   pageNum = Integer.parseInt(pageNumStr);
+                  	   List<Post> posts=  postBiz.getLatestPosts2(pageNum, 10);
+                  	   for (Post post:posts){
+                %>
+                <div class="list-group-item">
+                    <a href="<%=path%>/pages/post.jsp?postId=<%=post.getId()%>&&page=1" style="color:grey">
+                        <h4 class="list-group-item-heading" style="color:black">[<%=post.getSubForum().getMainForum().getTitle()%>]</h4>
+                        <%=post.getTitle() %>
+                    </a>
+                    <button id="<%=post.getId() %>" style="float: right;color: red;">删除</button>
+                    <span id="s<%=post.getId() %>"><button id="n<%=post.getId() %>" style="float: right;color: red;">驳回</button>
+                        <button id="y<%=post.getId() %>" style="float: right;color:green;">通过</button></span>
+                    <p style="float: right;margin-right: 15px">发表人:<%=post.getUser().getUsername()%>&nbsp;发表日期:<%=post.getTime()%></p>
+                </div>
+                 <script type="text/javascript">
+                     $(function(){
+                        flag = <%=post.getIf_pass()%>;
+                         if(flag==2){
+                             $("#<%=post.getId() %>").show();
+                             $("#s<%=post.getId() %>").html("<span style='color:red'>已被驳回</span>&nbsp;");
+                         }
+                         $("#<%=post.getId() %>").click(function(){
+                             if(confirm("确定要删除此条数据吗？")){
+                                 $.ajax({
+                                     type: "POST",
+                                     url: "${pageContext.request.contextPath}/postdelete.action",
+                                     data: {"postId": <%=post.getId() %>},
+                                     dataType:"text",
+                                     success: function () {
+                                         alert("删除成功！");
+                                         window.location.reload();
+                                     },
+                                     error: function () {
+                                         alert("删除失败");
+                                     }
+                                 });
+                             }
+                         });
+                         $("#y<%=post.getId() %>").click(function(){
+                             $.ajax({
+                                 type: "POST",
+                                 url:"${pageContext.request.contextPath}/updatepass.action",
+                                 data: {"postId": <%=post.getId() %>},
+                                 dataType:"text",
+                                 success: function () {
+                                     alert("该帖已审核通过！");
+                                     window.location.reload();
+                                 },
+                                 error: function () {
+                                     alert("审核失败");
+                                 }
+                             });
+                         });
+                         $("#n<%=post.getId() %>").click(function(){
+                             $.ajax({
+                                 type: "POST",
+                                 url:"${pageContext.request.contextPath}/updatenopass.action",
+                                 data: {"postId": <%=post.getId() %>},
+                                 dataType:"text",
+                                 success: function () {
+                                     alert("该帖已被驳回！");
+                                     window.location.reload();
+                                 },
+                                 error: function () {
+                                     alert("审核失败");
+                                 }
+                             });
+                         })
+                     })
+                 </script>
+ 				<%}%>
+ 				 <ul class="pagination pagination-lg" style="float:right">
+<% if (pageNum>1) { int pageIndex = pageNum -1;%>
+    <li><a href="<%=path+"/manage/excpost.jsp?page="+pageIndex%>">&laquo;</a></li>
+    <%}
+    	if (pageNum<=5){
+    		for (int i=1; i<=5; i++){
+    		if (pageNum == i){
+     %>
+    <li class="active"><a href="<%=path+"/manage/excpost.jsp?page="+i%>"><%=i%></a></li>
+    <%}else {
+     %>
+    <li><a href="<%=path+"/manage/excpost.jsp?page="+i%>"><%=i%></a></li>
+    <%}
+    if (i ==5){
+    %>
+     <li><a href="<%=path+"/manage/excpost.jsp?page="+6%>">&raquo;</a></li>
+   <%}}}
+    if (pageNum >5){
+    int maxPage = pageNum+1;
+    for (int i=4; i>=0; i--){
+    	int pageIndex = pageNum - i;
+    	if (i==0){
+     %>
+     <li class="active"><a href="<%=path+"/manage/excpost.jsp?page="+pageIndex%>"><%=pageIndex%></a></li>
+   
+    <%}else {%>
+     <li class=""><a href="<%=path+"/manage/excpost.jsp?page="+pageIndex%>"><%=pageIndex%></a></li>
+     <%}}%>
+      <li><a href="<%=path+"/manage/excpost.jsp?page="+maxPage%>">&raquo;</a></li>
+    <%}%>
+    
+   
+</ul><br>
+ 				
+
+        </div>
+    </div>
+</div>
+  
+  </body>
+</html>

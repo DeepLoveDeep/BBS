@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/mymessage.css" />
+		<link rel="stylesheet" href="css/myPagination.css">
+	</head>
+	<body>
+		<div class="message">
+			<div class="message-center">
+				<div class="message-biaoti">
+					<ul>
+						<li>我的消息</li>
+						<li class="suibian">全部已读</li>
+					</ul>
+				</div>
+				<div class="message-top">
+					<ul>
+						<li class="active-color"><span>系统消息</span><span class="xiaoxi-shuzi">2</span></li>
+						<li>评论</li>
+						<li>回复</li>
+					</ul>
+				</div>
+				<div class="message-bottom">
+					<ul class="show">
+						<li><span class="hongse-active">马克思助理马克思助理马克思助理马克思助</span><span>2018年8月4日</span></li>
+						<li><span class="hongse-active">马克思助理马克思助理马克思助理马克思助</span><span>2018年8月4日</span></li>
+						<li><span>马克思助理马克思助理马克思助理马克思助</span><span>2018年8月4日</span></li>
+					</ul>
+					<ul>
+						<li><span>是哈哈说 评论了你的文章《哈哈撒拆哦》</span><span>2018年8月4日</span></li>
+						<li><span>是哈哈说 评论了你的文章《哈哈撒拆哦》</span><span>2018年8月4日</span></li>
+						<li><span>是哈哈说 评论了你的文章《哈哈撒拆哦》</span><span>2018年8月4日</span></li>
+					</ul>
+					<ul>
+						<li><span>是哈哈说 评论了你的文章《哈哈撒拆哦》1111</span><span>2018年8月4日</span></li>
+						<li><span>是哈哈说 评论了你的文章《哈哈撒拆哦》1111</span><span>2018年8月4日</span></li>
+						<li><span>是哈哈说 评论了你的文章《哈哈撒拆哦》1111</span><span>2018年8月4日</span></li>
+					</ul>
+				</div>
+				<!--分页开始-->
+					<div id="pagination" class="pagination"></div>
+					<!--分页结束-->
+			</div>
+		</div>
+		<script src="js/jquery-3.2.1.js"></script>
+		 <script src="js/myPagination.js"></script>
+		<script>
+			$(".message-top ul li").click(function(){
+            var s=$(this).index();
+            $(".message-bottom ul").eq(s).addClass("show").siblings().removeClass("show");
+            $(this).addClass("active-color").siblings().removeClass("active-color");
+            })
+			$('.suibian').on('click',function(){
+				$('.message-bottom ul li span').removeClass('hongse-active')
+				$('.xiaoxi-shuzi').hide();
+			})
+			window.onload = function () {
+			    new myPagination({
+			        id: 'pagination',
+			        curPage:1, //初始页码
+			        pageTotal: 50, //总页数
+					pageAmount: 10,  //每页多少条
+			        dataTotal: 500, //总共多少条数据
+					pageSize: 5, //可选,分页个数
+			        showPageTotalFlag:true, //是否显示数据统计
+			        showSkipInputFlag:true, //是否支持跳转
+			        getPage: function (page) {
+			            //获取当前页数
+			            console.log(page);
+			        }
+   				 })
+
+				}
+      
+		</script>
+	</body>
+</html>

@@ -1,0 +1,149 @@
+body{
+	background: black;
+}
+.message{
+	width: 1200px;
+	margin: auto;
+	background: white;
+	border-radius: 10px;
+}
+.message-biaoti{
+	box-sizing: border-box;
+    height: 50px;
+    border-bottom: 1px solid #ededed;
+}
+.message-biaoti p{
+    float: left;
+    font-size: 16px;
+    margin-left: 40px;
+}
+.message-biaoti ul li{
+	font: 16px/50px "";
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #1b1e26;
+	cursor: pointer;
+    display: none;
+}
+.message-biaoti ul{
+    margin-right: 40px;
+}
+.message-biaoti .show{
+    display: block;
+}
+.message-top{
+	width: 1000px;
+    margin: auto;
+    box-sizing: border-box;
+    padding-top: 40px;
+}
+.message-top ul{
+	list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    cursor: pointer;
+
+
+    -ms-flex-pack :  justify;
+    display: -webkit-flex;/*老版本语法：Safari,iOS,Android browser,old Webkit browser*/
+    display: -moz-box;/*老版本语法：Firefox(buggy)*/
+    display: -ms-flexbox;/*混合版本语法：IE 10*/
+
+
+}
+.plstyle{
+    float: left;
+    display: block;
+    margin-left: 50px;
+}
+.message-top ul .active-color{
+   color: #c6913f;
+}
+.message-top ul li{
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: rgba(27, 30, 38, 0.6);
+	position: relative;
+}
+.message-bottom{
+	height: 240px;
+}
+.message-bottom ul{
+	margin: 0;
+	padding: 0;
+}
+.message-bottom ul li{
+	line-height: 45px;
+    color: #8f9091;
+    font-size: 14px;
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    -ms-flex-pack :  justify;
+    display: -webkit-flex;/*老版本语法：Safari,iOS,Android browser,old Webkit browser*/
+    display: -moz-box;/*老版本语法：Firefox(buggy)*/
+    display: -ms-flexbox;/*混合版本语法：IE 10*/
+}
+.message-bottom ul li span:nth-child(2){
+    float: right;
+}
+.message-bottom ul div{
+    line-height: 45px;
+    color: #8f9091;
+    font-size: 14px;
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    -ms-flex-pack :  justify;
+    display: -webkit-flex;/*老版本语法：Safari,iOS,Android browser,old Webkit browser*/
+    display: -moz-box;/*老版本语法：Firefox(buggy)*/
+    display: -ms-flexbox;/*混合版本语法：IE 10*/
+}
+.page{
+    margin-top:50px;
+    margin-left: 75%;
+    width: 300px;
+}
+
+/*.message-bottom ul li>span:first-child:before{
+	content: " ";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #a51a1a;
+    display: block;
+    position: absolute;
+    top: 21px;
+    left: -12px;
+}*/
+
+.message-bottom .show{
+	display: block;
+}
+.message-bottom ul{
+	display: none;
+}
+.message-top .xiaoxi-shuzi{
+	background: #ce2020;
+    color: white;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 14px;
+    position: absolute;
+    top: -15px;
+}

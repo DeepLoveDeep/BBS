@@ -1,0 +1,272 @@
+/*header开始*/
+header{
+    width: 100%;
+    background: url(../img/15.png) no-repeat;
+    height: 500px;
+}
+.header-center{
+    width: 1200px;
+    margin: auto;
+    margin-bottom: 23px;
+}
+.header-top{
+    display: flex;
+    justify-content: space-between;
+
+    -ms-flex-pack :  justify;
+    display: -webkit-flex;/*老版本语法：Safari,iOS,Android browser,old Webkit browser*/
+    display: -moz-box;/*老版本语法：Firefox(buggy)*/
+    display: -ms-flexbox;/*混合版本语法：IE 10*/
+}
+.header-left{
+    color: white;
+}
+.header-right{
+    width: 65%;
+}
+.header-center ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+
+    -ms-flex-pack :  justify;
+    display: -webkit-flex;/*老版本语法：Safari,iOS,Android browser,old Webkit browser*/
+    display: -moz-box;/*老版本语法：Firefox(buggy)*/
+    display: -ms-flexbox;/*混合版本语法：IE 10*/
+}
+.header-center ul li{
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    font-family: "微软雅黑";
+}
+.header-center ul li:hover{
+    color: #c58d0f;
+}
+.header-center ul li:nth-child(1){
+    color: #c58d0f;
+}
+.header-bottom{
+    box-sizing: border-box;
+    padding-top: 80px;
+}
+.header-bottom p:nth-child(1){
+    font-size: 45px;
+}
+.header-bottom p:nth-child(1) .sapn{
+    /*background: linear-gradient(to top, #c4ae3e, #c58d0f);
+    -webkit-background-clip: text;
+    color: transparent;*/
+    color: #e4c53c;
+}
+.header-bottom p:nth-child(1) span{
+    color: white;
+}
+.header-bottom p:nth-child(2){
+    color: white;
+    font-size: 30px;
+    box-sizing: border-box;
+    padding: 15px 0;
+}
+.header-bottom p:nth-child(3){
+    width: 110px;
+    height: 45px;
+    display: block;
+    color: white;
+    border: 1px solid #C58D0F;
+    text-align: center;
+    line-height: 45px;
+
+}
+.header-xiaotiao{
+    width: 100%;
+    background: rgba(38, 79, 153, 0.65);
+    color: white;
+}
+.header-xiantiao-center{
+    width: 1200px;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 10px 0;
+}
+.header-xiantiao-center ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+
+    -ms-flex-pack :  justify;
+    display: -webkit-flex;/*老版本语法：Safari,iOS,Android browser,old Webkit browser*/
+    display: -moz-box;/*老版本语法：Firefox(buggy)*/
+    display: -ms-flexbox;/*混合版本语法：IE 10*/
+}
+/*header结束*/
+.tb {
+    margin: 0 auto;
+}
+.tb tr th, .tb tr td {
+
+    BORDER-top: #cccccc 1px solid;
+    font-weight: normal;
+    color: #000;
+    background-repeat: repeat-x;
+    FONT-SIZE: 9pt;
+
+    padding: 10px;
+}
+.tb tr th {
+    width: 180px;
+    background-color: #fbfbfb;
+}
+body{
+    background-color: #000000;
+}
+
+.tb tr td {
+    width: 800px;
+    background-color: #ffffff;
+}
+
+.tb tr input {
+    width: 500px;
+}
+
+.tb tr span {
+    color: #ff3f3c;
+    margin-top: 5px;
+}
+.tab {
+    width: 80px;
+    border: 1px solid #ddddde;
+    height: 27px;
+    background: -webkit-linear-gradient(#e3e3e3, #fff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#e3e3e3, #fff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#e3e3e3, #fff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#e3e3e3, #fff); /* 标准的语法 */
+    text-align: center;
+    line-height: 27px;
+}
+.lccid{
+    width: 50px;
+    height: 50px;
+}
+.tab:hover,.omg {
+    background:#f5f5f5;
+    border-bottom:1px solid #fff;
+}
+#small_btn_select {
+    width: 120px;
+
+}
+#big_btn_select {
+    width: 270px;
+}
+.btn-select {
+    position: relative;
+    display: inline-block;
+
+    height: 35px;
+
+    font: 14px/20px "Microsoft YaHei";
+    color: #fff;
+}
+
+.btn-select .cur-select {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 30px;
+
+    text-align:center;
+
+}
+.btn-select select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    opacity: 0;
+
+    font: 14px/20px "Microsoft YaHei";
+    color: #000;
+}
+.btn-select select option {
+    text-indent: 10px;
+}
+.btn-select select option:hover {
+    background-color: #f80;
+    color: #fff;
+}
+.file{
+    position: relative;
+    top: -140px;
+    margin-top: -130px;
+    margin-left: 20px;
+}
+.img{
+    height: 106px;
+    margin-top: -5px;
+    margin-left: 20px;
+}
+.ck{
+    height: 620px;
+}
+.text-header{
+    height: 30px;
+    border-radius: 3px;
+    background-color: #fff;
+    text-indent: 30px;
+    color: #959595;
+    border: 1.5px solid #f7f7f7;
+}
+.first-tr{
+    height: 60px;
+}
+.biaoti{
+    background-color: #fff;
+}
+.enter{
+    background-image:-webkit-linear-gradient(#efd94d,#be7f04)
+}
+.main{
+    background: black;
+    width: 100%;
+}
+.main-center{
+    box-sizing: border-box;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+
+    -ms-flex-pack :  justify;
+    display: -webkit-flex;/*老版本语法：Safari,iOS,Android browser,old Webkit browser*/
+    display: -moz-box;/*老版本语法：Firefox(buggy)*/
+    display: -ms-flexbox;/*混合版本语法：IE 10*/
+}
+.view_width{
+    width: 1200px;
+    margin: 0 auto;
+}
+.mian-top{
+    display: flex;
+    box-sizing: border-box;
+    padding: 27px 0;
+    padding-left: 45px;
+    width: 1200px;
+    margin: auto;
+    padding-bottom: 0;
+
+    -ms-flex-pack :  justify;
+    display: -webkit-flex;/*老版本语法：Safari,iOS,Android browser,old Webkit browser*/
+    display: -moz-box;/*老版本语法：Firefox(buggy)*/
+    display: -ms-flexbox;/*混合版本语法：IE 10*/
+}
+.mian-top span{
+    color: white;
+    font-size: 16px;
+}
+

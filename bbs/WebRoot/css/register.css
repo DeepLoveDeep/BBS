@@ -1,0 +1,131 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #888;
+    line-height: 30px;
+    text-align: center;
+}
+
+strong { font-weight: 500; }
+
+a, a:hover, a:focus {
+    color: #000000;
+    text-decoration: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+
+.register{
+    max-width: 612px;
+    background: #ffffff;
+    margin: auto;
+}
+.register-header{
+    padding: 25px 25px 15px 25px;
+    background: #fff;
+    border: 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+.register-title{
+    text-align: left;
+    font-size: 18px;
+    color: #000000;
+    border-left: 10px solid #e0bd35;
+    padding-left: 15px;
+    line-height: 20px;
+}
+.register-title>span{
+    display: block;
+    font-size: 12px;
+    color: #585858;
+}
+.register-body{
+    padding: 25px 25px 30px 74px;
+    text-align: left;
+}
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+.sr-only{
+    width: 11%;
+    float: left;
+    font: 14px/54px "";
+    padding-right: 32px;
+    color: #000000;
+}
+.form-control{
+    display: block;
+    width: 77%;
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    outline: none;
+}
+.body-title{
+    text-align: right;
+    font-size: 12px;
+    padding-right: 10px;
+}
+.btn{
+    width: 376px;
+    height: 50px;
+    background: linear-gradient(to bottom, #ead044, #c08206);
+    border: none;
+    outline:none;
+    border-radius: 25px;
+    margin: 20px auto;
+    display: block;
+}
+.form-code{
+    width: 55%;
+    float: left;
+}
+.code{
+    width: 22%;
+    height: 39px;
+    font-size: 18px;
+    padding: 6px 12px;
+    font-style: italic;
+    font-weight: bold;
+    border: 0;
+    letter-spacing: 3px;
+    color: #ffffff;
+    outline: none;
+    background: linear-gradient(to right, #ead044, #c08206);
+}
+.text-muted{
+    color: #ee5135;
+    font: 12px/36px "";
+    position: absolute;
+    top:0;
+    right:-60px;
+}
+.text-danger{
+    color: #ee5135;
+    font: 12px/36px "";
+    position: absolute;
+    top:0;
+    right:-60px;
+}
+
+#codeInfo{
+    right: -75px;
+}
+#passwordInfo{
+    color: #ee5135;
+    font: 12px/36px "";
+    position: absolute;
+    top: 0;
+    right: -60px;
+}
